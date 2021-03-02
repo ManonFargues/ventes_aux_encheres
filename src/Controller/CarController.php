@@ -5,10 +5,12 @@ namespace App\Controller;
 
 
 use App\Entity\Car;
+use App\Form\CarType;
 use App\Repository\CarRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class CarController extends AbstractController
@@ -27,17 +29,28 @@ class CarController extends AbstractController
     /**
      * @Route("/add", name="add")
      */
-    public function add(EntityManagerInterface $manager)
+    public function add(EntityManagerInterface $manager, Request  $request)
     {
-        $car = new Car();
+        $form = $this->createForm(CarType::class);
 
-        $car->setModel('twingo');
-        $car->setPrice('2000');
+        $form->handleRequest($request);
 
-        $manager->persist($car);
-        $manager->flush();
+        if($form->isSubmitted() && $form->isValid()){
+            
+            $car = $form->getData();
+            $manager->persist($car);
+            $manager->flush();
+            $this->addFlash(
+                'notice',
+                'La voiture a bien été ajoutée'
+            );
 
-        return $this->render('home/add.html.twig');
+            return $this->redirectToRoute('home');
+        }
+
+        return $this->render('home/add.html.twig', [
+            'form' => $form->createView(),
+        ]);
     }
 
     /**
