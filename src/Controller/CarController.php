@@ -36,8 +36,19 @@ class CarController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
-            
+
+            $path = $this->getParameter('kernel.project_dir'). '/public/images';
             $car = $form->getData();
+
+            $image = $car->getImage();
+            $file = $image->getFile();
+
+            $name = md5(uniqid()). '.' .$file->getExtension();
+            $file->move($path, $name);
+
+            $image->setName($name);
+
+
             $manager->persist($car);
             $manager->flush();
             $this->addFlash(

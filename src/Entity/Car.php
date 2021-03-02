@@ -28,9 +28,26 @@ class Car
     private $price;
 
     /**
+     * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
+     */
+    private $image;
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): void
+    {
+        $this->image = $image;
+    }
+/*
+    /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="car")
      */
+    /*
     private $user;
+    */
 
     public function getId(): ?int
     {

@@ -15,12 +15,12 @@ class CarType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('model', TextType::class, [
-                'label' => "Modèle de la voiture : "
+            ->add('model', TextType::class)
+            ->add('price', NumberType::class)
+            ->add('image', ImageType::class, [
+                'label' => false,
             ])
-            ->add('price', NumberType::class, [
-                'label' => "Prix : "
-            ])
+
         ;
     }
 
