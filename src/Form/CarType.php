@@ -21,7 +21,6 @@ class CarType extends AbstractType
             ->add('price', NumberType::class, [
                 'label' => "Prix : "
             ])
-            ->add('save', SubmitType::class);
         ;
     }
 

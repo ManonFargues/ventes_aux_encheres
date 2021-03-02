@@ -66,14 +66,22 @@ class CarController extends AbstractController
     /**
      * @Route("/edit/{id}", name="edit")
      */
-    public function edit(Car $car, EntityManagerInterface $manager)
+    public function edit(Car $car, EntityManagerInterface $manager, Request $request)
     {
-        $car->setModel("Ferrari");
+        $form = $this->createForm(CarType::class, $car);
 
-        $manager->flush($car);
+        $form->handleRequest($request);
 
-        return $this->render('home/details.html.twig', [
-            'car' => $car
+        if($form->isSubmitted() && $form->isValid()){
+            
+            $manager->flush();
+
+            return $this->redirectToRoute("home");
+        }
+
+        return $this->render('home/edit.html.twig', [
+            'car' => $car,
+            'form' => $form->createView()
         ]);
     }
 
