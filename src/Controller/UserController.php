@@ -70,4 +70,12 @@ class UserController extends AbstractController
             'form' => $form->createView()
         ]);
     }
+
+    /**
+     *@Route("/logout", name="logout")
+     */
+    public function logout(){
+        throw new \LogicException('this method can be blank - it will be intercepted by the logout key on your firewall.');
+    }
+
 }
