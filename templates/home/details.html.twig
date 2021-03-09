@@ -3,5 +3,10 @@
     <p>voiture id : {{ car.id }}
     <p>modèle : {{ car.model }}
     <p>prix : {{ car.price }} </p>
+    {% if car.image.name is defined %}
+    <img src="{{ asset('images/')~car.image.name }}">
+        {% else %}
+        <p>pas d'image de la voiture</p>
+    {% endif %}
     <a href="{{ path("home") }}">Retour à la page d'accueil</a>
 </div>
