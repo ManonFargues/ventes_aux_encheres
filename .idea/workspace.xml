@@ -20,14 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e656bb9-a4ea-497d-9b02-900d87de51a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/IndexController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ventes_aux_encheres.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ventes_aux_encheres.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CarController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CarController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Car.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Car.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/CarType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/CarType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/add.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/details.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/details.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -137,6 +145,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
       <path value="$PROJECT_DIR$/vendor/symfony/http-client-contracts" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1pC5j9ncKm9pETZsgw0iABrtQOz" />
@@ -145,9 +155,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Rcar" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -159,7 +170,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1614674363332</updated>
-      <workItem from="1614674364427" duration="689000" />
+      <workItem from="1614674364427" duration="20584000" />
+      <workItem from="1615281862467" duration="5270000" />
+      <workItem from="1615813494652" duration="1230000" />
     </task>
     <servers />
   </component>
@@ -176,16 +189,37 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1100" y="260" width="675" height="552" key="NewPhpClassDialog" timestamp="1614674545392">
+    <state x="1158" y="338" width="560" height="395" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1614682388432">
       <screen x="0" y="37" width="1920" height="996" />
     </state>
-    <state x="1100" y="260" width="675" height="552" key="NewPhpClassDialog/0.37.1920.996@0.37.1920.996" timestamp="1614674545392" />
+    <state x="1158" y="338" width="560" height="395" key="#com.intellij.fileTypes.FileTypeChooser/0.37.1920.996@0.37.1920.996" timestamp="1614682388432" />
+    <state x="1219" y="246" width="437" height="580" key="#com.intellij.ide.util.MemberChooser" timestamp="1615305707476">
+      <screen x="0" y="37" width="1920" height="996" />
+    </state>
+    <state x="1219" y="246" width="437" height="580" key="#com.intellij.ide.util.MemberChooser/0.37.1920.996@0.37.1920.996" timestamp="1615305707476" />
+    <state x="1142" y="209" width="588" height="657" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1614678291048">
+      <screen x="0" y="37" width="1920" height="996" />
+    </state>
+    <state x="1142" y="209" width="588" height="657" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.37.1920.996@0.37.1920.996" timestamp="1614678291048" />
+    <state x="1223" y="293" width="430" height="486" key="FileChooserDialogImpl" timestamp="1615307816292">
+      <screen x="0" y="37" width="1920" height="996" />
+    </state>
+    <state x="1223" y="293" width="430" height="486" key="FileChooserDialogImpl/0.37.1920.996@0.37.1920.996" timestamp="1615307816292" />
+    <state x="1100" y="260" width="675" height="552" key="NewPhpClassDialog" timestamp="1614680972668">
+      <screen x="0" y="37" width="1920" height="996" />
+    </state>
+    <state x="1100" y="260" width="675" height="552" key="NewPhpClassDialog/0.37.1920.996@0.37.1920.996" timestamp="1614680972668" />
     <state x="1237" y="461" width="401" height="150" key="NewPhpFileDialog" timestamp="1614674532020">
       <screen x="0" y="37" width="1920" height="996" />
     </state>
     <state x="1237" y="461" width="401" height="150" key="NewPhpFileDialog/0.37.1920.996@0.37.1920.996" timestamp="1614674532020" />
+    <state width="498" height="445" key="SwitcherDM" timestamp="1614680106453">
+      <screen x="0" y="37" width="1920" height="996" />
+    </state>
+    <state width="498" height="445" key="SwitcherDM/0.37.1920.996@0.37.1920.996" timestamp="1614680106453" />
     <state x="1103" y="255" width="672" height="678" key="search.everywhere.popup" timestamp="1614674800294">
       <screen x="0" y="37" width="1920" height="996" />
     </state>

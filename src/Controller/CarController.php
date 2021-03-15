@@ -5,8 +5,11 @@ namespace App\Controller;
 
 
 use App\Entity\Car;
+use App\Entity\Image;
+use App\Entity\Keyword;
 use App\Form\CarType;
 use App\Repository\CarRepository;
+use App\Services\ImageHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,25 +32,18 @@ class CarController extends AbstractController
     /**
      * @Route("/add", name="add")
      */
-    public function add(EntityManagerInterface $manager, Request  $request)
+    public function add(EntityManagerInterface $manager, Request  $request, ImageHandler $handler)
     {
         $form = $this->createForm(CarType::class);
-
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
 
-            $path = $this->getParameter('kernel.project_dir'). '/public/images';
             $car = $form->getData();
 
+            /** @var Image $image */
             $image = $car->getImage();
-            $file = $image->getFile();
-
-            $name = md5(uniqid()). '.' .$file->getExtension();
-            $file->move($path, $name);
-
-            $image->setName($name);
-
+            $handler->handle($image);
 
             $manager->persist($car);
             $manager->flush();

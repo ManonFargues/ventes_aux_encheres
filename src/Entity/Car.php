@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CarRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -31,6 +32,32 @@ class Car
      * @ORM\OneToOne(targetEntity="Image", cascade={"persist", "remove"})
      */
     private $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Keyword", mappedBy="car", cascade={"persist", "remove"})
+     */
+    private $keywords;
+
+    public function __construct()
+    {
+        $this->keywords = new ArrayCollection();
+    }
+
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    public function addKeyword(Keyword $keyword)
+    {
+        $this->keywords->add($keyword);
+        $keyword->setCar($this);
+    }
+
+    public function removeKeyword(Keyword $keyword)
+    {
+        $this->keywords->removeElement($keyword);
+    }
 
     public function getImage(): ?Image
     {

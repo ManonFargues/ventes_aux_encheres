@@ -1,4 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
 <h1>Ajouter une voiture</h1>
 {% include 'home/form.html.twig' %}
-<button type="submit" name="action">Ajouter</button>
+<button class="addKeyword" >Ajouter un mot clé</button>
+
+<button type="submit" name="action">Sauvegarder</button>
 {{ form_end(form) }}
+{% endblock %}
+
+{% block javascript %}
+
+{{ parent() }}
+
+<script src="//ajax.googleapis.com//libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+    var $container = $('#car_keywords');
+
+    // récupère le nombre d'input
+    var index = $container.find(':input').length;
+
+    if(index == 0) {
+        addKeyword($container);
+    }
+
+    $('.addKeyword').click(function(e) {
+        e.preventDefault();
+
+        addKeyword($container);
+    })
+
+    function addKeyword($container) {
+
+        var template = $container.attr('data-prototype')
+        .replace(/__name__label__/g, 'Mot clé n°' + (index + 1))
+        .replace(/__name/g, index)
+        ;
+
+        var $prototype = $(template);
+
+        $container.append($prototype);
+
+        index ++;
+    }
+});
+
+</script>
+{% endblock %}

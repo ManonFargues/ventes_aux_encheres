@@ -8,5 +8,10 @@
         {% else %}
         <p>pas d'image de la voiture</p>
     {% endif %}
+
+    {% for keyword in car.keywords %}
+        <p>Mot clé : {{ keyword.name }} {%  if not loop.last %}, {% endif %}</p>
+    {% endfor %}
+
     <a href="{{ path("home") }}">Retour à la page d'accueil</a>
 </div>
